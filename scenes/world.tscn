@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/lesgo_sound.gd" type="Script" id=2]
+[ext_resource path="res://scripts/BulletManager.gd" type="Script" id=3]
+[ext_resource path="res://assets/effects/lesgo.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/white.png" type="Texture" id=5]
+[ext_resource path="res://scripts/bg.gd" type="Script" id=6]
+[ext_resource path="res://scenes/camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resources/font.tres" type="DynamicFontData" id=8]
+[ext_resource path="res://scripts/onelinecode.gd" type="Script" id=9]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.95
+glow_blend_mode = 0
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 285.466, 11.5935 )
+
+[node name="world" type="Node2D"]
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 267.413, 363.789 )
+scale = Vector2( 17.7576, 22.2414 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 275, 360 )
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="lesgo_sound" type="AudioStreamPlayer2D" parent="BulletManager"]
+stream = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="BulletPool" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 17.773
+margin_top = -4.11893
+margin_right = 47.773
+margin_bottom = 56.8811
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=[
+"wall",
+]]
+position = Vector2( 272.571, -42.4667 )
+shape = SubResource( 3 )
+
+[node name="Area2D2" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" groups=[
+"wall",
+]]
+position = Vector2( 272.867, 755.838 )
+shape = SubResource( 3 )

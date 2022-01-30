@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hop.wav-9b82b6793e1f905f35b6cc3768b3435f.sample"
+
+[deps]
+
+source_file="res://assets/effects/hop.wav"
+dest_files=[ "res://.import/hop.wav-9b82b6793e1f905f35b6cc3768b3435f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
