@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/lesgo_sound.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://resources/font.tres" type="DynamicFontData" id=8]
 [ext_resource path="res://scripts/onelinecode.gd" type="Script" id=9]
+[ext_resource path="res://scripts/PowerManager.gd" type="Script" id=10]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -27,7 +28,7 @@ extents = Vector2( 285.466, 11.5935 )
 [node name="world" type="Node2D"]
 
 [node name="bg" type="Sprite" parent="."]
-position = Vector2( 267.413, 363.789 )
+position = Vector2( 265.731, 363.789 )
 scale = Vector2( 17.7576, 22.2414 )
 texture = ExtResource( 5 )
 script = ExtResource( 6 )
@@ -83,3 +84,6 @@ shape = SubResource( 3 )
 ]]
 position = Vector2( 272.867, 755.838 )
 shape = SubResource( 3 )
+
+[node name="PowerManager" type="Node2D" parent="."]
+script = ExtResource( 10 )

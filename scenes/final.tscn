@@ -31,6 +31,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="restart_button" type="Button" parent="restart"]
+modulate = Color( 0, 0, 0, 0 )
+margin_left = -1.3922
+margin_top = 14.97
+margin_right = 404.608
+margin_bottom = 113.97
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_menu" type="Label" parent="."]
+margin_left = 25.1882
+margin_top = 569.945
+margin_right = 537.188
+margin_bottom = 690.945
+custom_fonts/font = SubResource( 1 )
+text = "MAIN MENU"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_menu_button" type="Button" parent="main_menu"]
+modulate = Color( 0, 0, 0, 0 )
+margin_left = -1.0
+margin_top = 15.0
+margin_right = 511.0
+margin_bottom = 114.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="score" type="Label" parent="."]
 margin_left = 6.75684
 margin_top = 220.271
@@ -55,14 +88,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-modulate = Color( 0, 0, 0, 0 )
-margin_left = 68.2432
-margin_top = 423.0
-margin_right = 474.243
-margin_bottom = 522.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="restart/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="main_menu/main_menu_button" to="." method="_on_main_menu_button_pressed"]

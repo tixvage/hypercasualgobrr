@@ -7,20 +7,25 @@ var score_text = null
 var score = 0 setget _score_set
 var player = null
 var hs = 0
+var coin = 0
 var current_difficulty = 1
 
 const SAVE_DIR = "user://saves/"
 var save_path = SAVE_DIR + "save.dat"
 
+onready var transition_animation = load("res://scenes/transition.tscn")
+
 func save_data():
 	var data = {
 		"hs": 0,
+		"coin": 0,
 	}
 	if Globals.score > Globals.hs:
 		Globals.hs = Globals.score
 		data["hs"] = Globals.score
 	else:
 		data["hs"] = Globals.hs
+	data["coin"] = coin
 	var dir = Directory.new()
 	if !dir.dir_exists(SAVE_DIR):
 		dir.make_dir_recursive(SAVE_DIR)
@@ -40,10 +45,16 @@ func load_data():
 			file.close()
 			return data
 
+func change_scene(path):
+	var temp_transition = transition_animation.instance()
+	temp_transition.next_scene = path
+	get_parent().add_child(temp_transition)
+
 func _ready():
 	var data = load_data()
 	hs = data["hs"]
-	
+	coin = data["coin"]
+
 func _score_set(_score):
 	score = _score
 	if score_text != null:
